@@ -11,11 +11,12 @@ from logFile import LogFile
 import os
 
 # get the path from the user
-path = input("please add the path to the directory of the log file")
+path = input("please add the path to the directory of the log file \n")
 
 # check if valid path
-if not os.path.exists(path):
-    print("path do not exist, please try again with exist file")
+while not os.path.exists(path):
+    print("path do not exist, please try again with exist file ")
+    path = input("please add the path to the directory of the log file\n")
 
 # use os to get list of directory in this file
 files = os.listdir(path)
@@ -23,8 +24,8 @@ files = os.listdir(path)
 # find the log file and add the path, than add it to new list
 list_of_file = []
 for file in files:
-    if ".log" in file:
-        file = path + "/" + file
+    if file.endswith(".log"):
+        file = os.path.join(path, file)
         list_of_file.append(file)
 
 # creating min heap with the num of file size
