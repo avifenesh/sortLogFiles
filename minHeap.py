@@ -1,12 +1,11 @@
-"""
-created by Avi Fenesh
-explanation:
-i took most of the structure of the minHeap from gfg and edited it for my own need
-the changes are that here i store the log files objects in the min_heap and compare the time stamp instead of regular
-instance
-another change is i check when try to return the min if this is the last line in the file, if it is i return min
-like usual, else i get the line, then get the next one from the file and use heapify
-"""
+# created by Avi Fenesh
+# explanation:
+# i took most of the structure of the minHeap from gfg and edited it for my own need
+# the changes are that here i store the log files objects in the min_heap and compare the time stamp instead of regular
+# instance
+# another change is i check when try to return the min if this is the last line in the file, if it is i return min
+# like usual, else i get the line, then get the next one from the file and use heapify
+
 
 class MinHeap:
 
@@ -91,9 +90,9 @@ class MinHeap:
     # if its the last line in the file do it as usual,
     # else get the line and then heapify with the new line timeStamp value
     def remove(self):
-        popped, last_check = self.heap[self.FRONT].get_line()
+        popped, last_line = self.heap[self.FRONT].get_line()
 
-        if last_check == 0:  # get_line return 0 if last line, then we min_heapify normally
+        if last_line:
             self.heap[self.FRONT] = self.heap[self.size - 1]
             self.size -= 1
             if self.size == 0:
@@ -101,6 +100,6 @@ class MinHeap:
             self.min_heapify(self.FRONT)
             return popped
 
-        else:  # if not the last line, get the line and heapify withe the time stamp of the next line
+        else:  # if not the last line, get the line and heapify with the time stamp of the next line
             self.min_heapify(self.FRONT)
             return popped
