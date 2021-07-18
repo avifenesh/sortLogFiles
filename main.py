@@ -1,10 +1,12 @@
-# Made by Avi Fenesh
-# 15.07.2021
-# main program
-# get input of path to the file of log files
-# create logFile object for every file
-# create min heap and inserting the logFile objects
-# returning the minimum one by one and inserting to new log file
+"""
+Made by Avi Fenesh
+15.07.2021
+main program
+get input of path to the file of log files
+create logFile object for every file
+create min heap and inserting the logFile objects
+returning the minimum one by one and inserting to new log file
+"""
 
 from minHeap import MinHeap
 from logFile import LogFile
