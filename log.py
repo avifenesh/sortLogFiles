@@ -8,8 +8,8 @@ from datetime import datetime
 import linecache
 
 
-# log-file contain path to the file, line for the next line we want to compare, and time_stamp for the value
-class LogFile:
+# log contain path to the file of the log, line for the line un the file contain the log, and time_stamp for the value
+class Log:
     def __init__(self, path):
         self.path = path
         self.line = 0
