@@ -14,11 +14,12 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description='Sort log files to one sorted log file.')
-    parser.add_argument("-d", "--dmp", default=None, help='Path to log file, please encapsulate by quotation marks.')
+    parser.add_argument("-d", "--dmp", default=None, help='Path to log file, if your file name containing white-spaces '
+                                                          'please encapsulate by quotation marks.')
     args = parser.parse_args()
     path = ''.join(args.dmp)
     if not os.path.exists(path):
-        raise argparse.ArgumentTypeError(f"readable_dir:{path} is not a valid path")
+        raise argparse.ArgumentTypeError("readable_dir:%s is not a valid path" % path)
     list_of_files = get_list_of_files(path)
     sort_list_log_file(list_of_files)
 
@@ -55,7 +56,7 @@ def dir_path(path):
     if os.path.isdir(path):
         return path
     else:
-        raise argparse.ArgumentTypeError(f"readable_dir:{path} is not a valid path")
+        raise argparse.ArgumentTypeError("readable_dir:%s is not a valid path" % path)
 
 
 if __name__ == "__main__":
