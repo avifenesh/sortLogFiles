@@ -12,3 +12,6 @@ Pull repo to your machine. <br />
 Open command line and navigate to the repo directory. <br />
 Write in the command line: python main.py -d [path-to-log-files]<br />
 If the path containing white spaces encapsulate the path by quotation marks. <br />
+Only files ending in `.log` in that directory are read. <br />
+Each log entry needs a time-stamp like `2021-07-15 13:45:10`. A line without one stays with the entry above it. <br />
+The sorted output is written to `newLogFile.log` in the current directory. <br />
